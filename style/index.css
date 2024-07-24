@@ -1,0 +1,126 @@
+.cats {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  width: 150px;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ccc;
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 0 10px #aaa;
+}
+.card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.cats-0 {
+  view-transition-name: cats-0;
+}
+.cats-1 {
+  view-transition-name: cats-1;
+}
+.cats-2 {
+  view-transition-name: cats-2;
+}
+.cats-3 {
+  view-transition-name: cats-3;
+}
+.cats-4 {
+  view-transition-name: cats-4;
+}
+.yes {
+  view-transition-name: yes;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.detail img {
+  width: 300px;
+  border-radius: 5px;
+}
+.selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.selected img {
+  width: 300px;
+  border-radius: 5px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+::view-transition-new(cats-1) {
+  animation-name: slideIn;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+::view-transition-new(cats-2) {
+  animation-name: slideUp;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-30px);
+  }
+}
+
+::view-transition-old(cats-3) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(cats-3) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
