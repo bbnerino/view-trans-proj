@@ -5,4 +5,4 @@ export const updateView = (callback: () => void) => {
   }
 
   document.startViewTransition(callback);
-};
+}; 
